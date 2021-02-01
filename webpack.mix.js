@@ -22,13 +22,9 @@ mix
 .styles([
     'resources/css/app.css', // merge native css files
 ], 'public/css/styles.css')
-.scripts([
-    'resources/js/app.js', // merge vanila files
-], 'public/js/script.js')
-.babel([
-    'resources/js/babel.js', // merge ES2015 
-], 'public/js/babel.js')
+.js('resources/js/bootstrap.js', 'public/js')
 .js('resources/js/app.js', 'public/js')
+.vue()
 .sass('resources/sass/app.scss', 'public/css')
 .extract(['axios', 'jquery', 'bootstrap', 'vue', 'react'])
 .sourceMaps();

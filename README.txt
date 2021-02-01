@@ -1,16 +1,16 @@
 # postman
 
 #todo
-[] vue can't compile
-[] why can login to api
-[] move login to api
-[] create post to url 
-[] api curl
-[] store request
-[] login 
-[] multiple users roles
-[] make vua app default controller main
-[] api calls > password protected
+-why can login to api
+-vue production https://vuejs.org/v2/guide/deployment.html
+-move login to api
+-create post to url 
+-api curl
+-store request
+-login 
+-multiple users roles
+-make vua app default controller main
+-api calls > password protected
 
 #documentation
 https://postman.project.dev/
@@ -47,3 +47,5 @@ php artisan migrate --force
 php artisan migrate --force --seed
 
 php artisan key:generate
+
+php artisan route:list
