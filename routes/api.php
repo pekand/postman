@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [App\Http\Controllers\ApiController::class, 'login']);
 
-Route::group(['middleware' => ['auth:api']], function()
+Route::group(['middleware' => ['apitoken']], function()
 {
-
+    Route::get('/logout', [App\Http\Controllers\ApiController::class, 'logout']);
     Route::get('/user', [App\Http\Controllers\ApiController::class, 'user']);
-
 });

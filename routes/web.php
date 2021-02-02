@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('main');
 
-Auth::routes();
-
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+
+

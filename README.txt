@@ -1,16 +1,16 @@
 # postman
 
 #todo
--why can login to api
--vue production https://vuejs.org/v2/guide/deployment.html
--move login to api
+
+-display current user > make cllass > auth > service > get user > one time get
+
 -create post to url 
 -api curl
 -store request
--login 
 -multiple users roles
--make vua app default controller main
--api calls > password protected
+-vue frontend
+-vue production https://vuejs.org/v2/guide/deployment.html
+-postman application for testng requests
 
 #documentation
 https://postman.project.dev/
@@ -48,4 +48,8 @@ php artisan migrate --force --seed
 
 php artisan key:generate
 
+#list of urls
 php artisan route:list
+
+php artisan make:migration create_access_tokens_table --create=access_tokens
+php artisan migrate --force
