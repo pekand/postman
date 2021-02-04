@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use App\Models\AccessTokens;
+use App\Models\AccessToken;
 
 class ApiToken
 {
@@ -21,7 +21,7 @@ class ApiToken
     {
 
         $access_token = $request->header('Authorization');
-        $accessToken = AccessTokens::where('access_token', $access_token)->first();
+        $accessToken = AccessToken::where('access_token', $access_token)->first();
 
         if($accessToken == null) {
             abort(403, 'Access denied');

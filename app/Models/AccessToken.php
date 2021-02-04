@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 
-class AccessTokens extends Model
+class AccessToken extends Model
 {
     use HasFactory;
 
@@ -24,6 +24,7 @@ class AccessTokens extends Model
     }
 
     public function uid($len = 32) { 
+        mt_srand(random_int(PHP_INT_MIN, PHP_INT_MAX));
         $ch = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $out = "";
         for ($i=0; $i < $len; $i++) { 

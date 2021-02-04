@@ -1,16 +1,31 @@
 # postman
 
-#todo
+
+##################################################################################
 
 -display current user > make cllass > auth > service > get user > one time get
 
+-test all 
+-project > add > edit > delete (soft)
+-request > add > edit > delete (soft)
+-request call > add > edit > delete (soft)
+
+-frontent > login page
+-frontend > tree > projects > request > view request
+
+-view request > view request history
+-make call > curl
 -create post to url 
 -api curl
 -store request
+
 -multiple users roles
 -vue frontend
 -vue production https://vuejs.org/v2/guide/deployment.html
+
 -postman application for testng requests
+
+##################################################################################
 
 #documentation
 https://postman.project.dev/
@@ -43,13 +58,34 @@ grant all privileges on `postman`.* to 'postman'@'%';
 
 https://dbadmin.pekand.dev/phpMyAdmin-5.0.4-all-languages/db_structure.php?server=1&db=postman
 
-php artisan migrate --force
-php artisan migrate --force --seed
-
 php artisan key:generate
 
 #list of urls
 php artisan route:list
 
 php artisan make:migration create_access_tokens_table --create=access_tokens
+php artisan make:migration create_projects_table --create=projects
+php artisan make:migration create_request_table --create=requests
+php artisan make:migration create_call_table --create=calls
+php artisan make:model AccessTokens
+php artisan make:model Project
+php artisan make:model Request
+php artisan make:model Call
 php artisan migrate --force
+php artisan migrate --force --seed
+
+
+php artisan migrate:reset --force
+php artisan migrate --force --seed
+
+.\vendor\bin\phpunit
+
+php artisan make:test AuthTest
+php artisan make:test ProjectTest
+php artisan make:test RequestTest
+php artisan make:test CallTest
+
+php artisan make:test AuthTest --unit
+php artisan make:test ProjectTest --unit
+php artisan make:test RequestTest --unit
+php artisan make:test CallTest --unit

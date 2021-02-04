@@ -5,20 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
-use App\Models\AccessTokens;
+use App\Models\AccessToken;
 
-class ApiController extends Controller
+class AuthController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('apitoken');
-    }
-
     public function login(Request $request)
     {
         $data = $request->json()->all();
@@ -33,7 +23,7 @@ class ApiController extends Controller
             return new JsonResponse(["action"=>"Access denied"], 403);
         }
 
-        $accessToken = new AccessTokens();
+        $accessToken = new AccessToken();
         $accessToken->user()->associate($user);
         $accessToken->save();
 
@@ -46,7 +36,7 @@ class ApiController extends Controller
     public function logout(Request $request)
     {
         $access_token = $request->header('Authorization');
-        $accessToken = AccessTokens::where('access_token', $access_token)->first();
+        $accessToken = AccessToken::where('access_token', $access_token)->first();
         $accessToken->delete();
 
         return [
@@ -54,13 +44,14 @@ class ApiController extends Controller
         ];
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function user(Request $request)
     {
-        return ['action'=>'getuser'];
+        $access_token = $request->header('Authorization');
+        $accessToken = AccessToken::where('access_token', $access_token)->first();
+
+        return [
+            "action"=>"user",
+            "user"=>$accessToken->user()->get(),
+        ];
     }
 }
