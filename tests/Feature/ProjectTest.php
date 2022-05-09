@@ -15,6 +15,9 @@ class ProjectTest extends TestCase
      */
     public function test_project()
     {
+        $response = $this->getJson('/api/projects');
+        $response->assertStatus(403);
+
         $response = $this->postJson('/api/login', [
                 'username' => 'admin@admin',
                 'password' => 'password'

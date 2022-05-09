@@ -15,6 +15,12 @@ class AuthTest extends TestCase
      */
     public function test_auth()
     {
+        $response = $this->getJson('/api/user');
+        $response->assertStatus(403);
+
+        $response = $this->getJson('/api/logout');
+        $response->assertStatus(403);
+
         $response = $this->postJson('/api/login', [
                 'username' => 'admin@admin',
                 'password' => 'password'
@@ -26,6 +32,10 @@ class AuthTest extends TestCase
         $this->assertArrayHasKey('access_token', $response);
 
         $accessToken = $response->decodeResponseJson()['access_token'];
+
+        $response = $this->getJson('/api/user', ['Authorization' => $accessToken]);
+
+        $response->assertStatus(200);
 
         $response = $this->getJson('/api/logout', ['Authorization' => $accessToken]);
 

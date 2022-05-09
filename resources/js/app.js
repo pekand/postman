@@ -20,7 +20,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', require('./components/App.vue').default);
-Vue.component('component1', require('./components/Component1.vue').default);
+Vue.component('LoginBox', require('./components/LoginBox.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,7 +31,7 @@ Vue.component('component1', require('./components/Component1.vue').default);
 import App from "./components/App.vue";
 
 const app = new Vue({
-    el: '#app-vue',
+    el: '#app',
     render: h => h(App),
     data: {
         message: 'Hello Vue!'

@@ -15,6 +15,9 @@ class CallTest extends TestCase
      */
     public function test_call()
     {
+        $response = $this->getJson('/api/calls/1');
+        $response->assertStatus(403);
+
         $response = $this->postJson('/api/login', [
                 'username' => 'admin@admin',
                 'password' => 'password'

@@ -1,16 +1,16 @@
 <template>
     <div>
-        <component1 :article="{}" :canModify="false"></component1>
+        <LoginBox></LoginBox>
     </div>
 </template>
 
 <script>
-    import Component1 from "./Component1";
+    import LoginBox from "./LoginBox";
 
     export default {
         name: 'app',
         components: {
-            Component1
+            LoginBox
         }
     }
 </script>

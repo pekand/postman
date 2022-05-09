@@ -12,6 +12,6 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app-vue"></div>
+<div id="app"></div>
 </body>
 </html>

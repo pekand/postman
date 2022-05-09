@@ -3,14 +3,13 @@
 
 ##################################################################################
 
--display current user > make cllass > auth > service > get user > one time get
+-frontent > login page
 
--test all 
 -project > add > edit > delete (soft)
 -request > add > edit > delete (soft)
 -request call > add > edit > delete (soft)
 
--frontent > login page
+
 -frontend > tree > projects > request > view request
 
 -view request > view request history
@@ -48,7 +47,7 @@ npm install vue-loader@^15.9.5 --save-dev --legacy-peer-deps
 #bild frontend
 npm audit fix
 npm install && npm run dev
-
+npm run watch
 
 #database (credential set in .env file)
 create database IF NOT EXISTS postman character set utf8 collate utf8_general_ci;

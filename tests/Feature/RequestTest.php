@@ -15,6 +15,9 @@ class RequestTest extends TestCase
      */
     public function test_request()
     {
+        $response = $this->getJson('/api/requests/1');
+        $response->assertStatus(403);
+
         $response = $this->postJson('/api/login', [
                 'username' => 'admin@admin',
                 'password' => 'password'
